@@ -1,13 +1,6 @@
-## Pagoda: Rapid, easy full-stack web development starter kit in Go
+## Rapid, easy full-stack web development starter kit in Go
 
-[![Go Report Card](https://goreportcard.com/badge/reak/base)](https://goreportcard.com/report/reak/base)
-[![Test](https://reak/base/actions/workflows/test.yml/badge.svg)](https://reak/base/actions/workflows/test.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Go Reference](https://pkg.go.dev/badge/reak/base.svg)](https://pkg.go.dev/reak/base)
-[![GoT](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev)
-[![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
-
-<p align="center"><img alt="Logo" src="https://user-images.githubusercontent.com/552328/147838644-0efac538-a97e-4a46-86a0-41e3abdf9f20.png" height="200px"/></p>
+Inspired from Pagoda, Minimized and cleaner version for projects.
 
 ## Table of Contents
 * [Introduction](#introduction)
