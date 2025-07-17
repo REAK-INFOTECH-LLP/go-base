@@ -49,7 +49,7 @@ func (f *Login) Render(r *ui.Request) Node {
 		),
 		ControlGroup(
 			FormButton(ColorPrimary, "Login"),
-			ButtonLink(ColorLink, r.Path(routenames.Home), "Cancel"),
+			ButtonLink(ColorLink, r.Path(routenames.Login), "Cancel"),
 		),
 		CSRF(r),
 		Div(

@@ -25,7 +25,7 @@ func Error(ctx echo.Context, code int) error {
 		body = Group{
 			Text("Click "),
 			A(
-				Href(r.Path(routenames.Home)),
+				Href(r.Path(routenames.Login)),
 				Text("here"),
 			),
 			Text(" to go return home."),

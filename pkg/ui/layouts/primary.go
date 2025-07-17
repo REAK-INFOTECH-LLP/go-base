@@ -64,7 +64,6 @@ func search() Node {
 					Attr("@click", "search_modal.showModal();"),
 				),
 			),
-
 		)
 	})
 }
@@ -86,15 +85,6 @@ func searchModal(r *ui.Request) Node {
 				H3(
 					Class("text-lg font-bold mb-2"),
 					Text("Search"),
-				),
-				Input(
-					Attr("hx-get", r.Path(routenames.Search)),
-					Attr("hx-trigger", "keyup changed delay:500ms"),
-					Attr("hx-target", "#results"),
-					Name("query"),
-					Class("input w-full"),
-					Type("search"),
-					Placeholder("Search..."),
 				),
 				Ul(
 					ID("results"),
@@ -160,13 +150,6 @@ func sidebarMenu(r *ui.Request) Node {
 			search(),
 			Ul(
 				HxBoost(),
-				header("General"),
-				MenuLink(r, icons.Home(), "Dashboard", routenames.Home),
-				MenuLink(r, icons.Info(), "About", routenames.About),
-				MenuLink(r, icons.Mail(), "Contact", routenames.Contact),
-				MenuLink(r, icons.Archive(), "Cache", routenames.Cache),
-				MenuLink(r, icons.CircleStack(), "Task", routenames.Task),
-				MenuLink(r, icons.Document(), "Files", routenames.Files),
 				header("Account"),
 				If(r.IsAuth, MenuLink(r, icons.Exit(), "Logout", routenames.Logout)),
 				If(!r.IsAuth, MenuLink(r, icons.Enter(), "Login", routenames.Login)),

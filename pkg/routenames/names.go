@@ -5,10 +5,7 @@ import (
 )
 
 const (
-	Home                 = "home"
 	About                = "about"
-	Contact              = "contact"
-	ContactSubmit        = "contact.submit"
 	Login                = "login"
 	LoginSubmit          = "login.submit"
 	Register             = "register"
@@ -19,13 +16,6 @@ const (
 	VerifyEmail          = "verify_email"
 	ResetPassword        = "reset_password"
 	ResetPasswordSubmit  = "reset_password.submit"
-	Search               = "search"
-	Task                 = "task"
-	TaskSubmit           = "task.submit"
-	Cache                = "cache"
-	CacheSubmit          = "cache.submit"
-	Files                = "files"
-	FilesSubmit          = "files.submit"
 	AdminTasks           = "admin:tasks"
 )
 

@@ -44,6 +44,7 @@ func (h *Auth) Init(c *services.Container) error {
 func (h *Auth) Routes(g *echo.Group) {
 	g.GET("/logout", h.Logout, middleware.RequireAuthentication).Name = routenames.Logout
 	g.GET("/email/verify/:token", h.VerifyEmail).Name = routenames.VerifyEmail
+	g.GET("/", h.LoginPage).Name = routenames.Login
 
 	noAuth := g.Group("/user", middleware.RequireNoAuthentication)
 	noAuth.GET("/login", h.LoginPage).Name = routenames.Login
@@ -177,7 +178,7 @@ func (h *Auth) LoginSubmit(ctx echo.Context) error {
 	msg.Success(ctx, fmt.Sprintf("Welcome back, %s. You are now logged in.", u.Name))
 
 	return redirect.New(ctx).
-		Route(routenames.Home).
+		Route(routenames.Login).
 		Go()
 }
 
@@ -188,7 +189,7 @@ func (h *Auth) Logout(ctx echo.Context) error {
 		msg.Error(ctx, "An error occurred. Please try again.")
 	}
 	return redirect.New(ctx).
-		Route(routenames.Home).
+		Route(routenames.Login).
 		Go()
 }
 
@@ -251,7 +252,7 @@ func (h *Auth) RegisterSubmit(ctx echo.Context) error {
 	h.sendVerificationEmail(ctx, u)
 
 	return redirect.New(ctx).
-		Route(routenames.Home).
+		Route(routenames.Login).
 		Go()
 }
 
@@ -336,7 +337,7 @@ func (h *Auth) VerifyEmail(ctx echo.Context) error {
 	if err != nil {
 		msg.Warning(ctx, "The link is either invalid or has expired.")
 		return redirect.New(ctx).
-			Route(routenames.Home).
+			Route(routenames.Login).
 			Go()
 	}
 
@@ -375,6 +376,6 @@ func (h *Auth) VerifyEmail(ctx echo.Context) error {
 
 	msg.Success(ctx, "Your email has been successfully verified.")
 	return redirect.New(ctx).
-		Route(routenames.Home).
+		Route(routenames.Login).
 		Go()
 }
