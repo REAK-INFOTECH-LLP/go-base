@@ -3,11 +3,11 @@ package middleware
 import (
 	"testing"
 
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/tests"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"reak/base/config"
+	"reak/base/pkg/context"
+	"reak/base/pkg/tests"
 )
 
 func TestConfig(t *testing.T) {

@@ -1,9 +1,9 @@
 ## Pagoda: Rapid, easy full-stack web development starter kit in Go
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/mikestefanello/pagoda)](https://goreportcard.com/report/github.com/mikestefanello/pagoda)
-[![Test](https://github.com/mikestefanello/pagoda/actions/workflows/test.yml/badge.svg)](https://github.com/mikestefanello/pagoda/actions/workflows/test.yml)
+[![Go Report Card](https://goreportcard.com/badge/reak/base)](https://goreportcard.com/report/reak/base)
+[![Test](https://reak/base/actions/workflows/test.yml/badge.svg)](https://reak/base/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Go Reference](https://pkg.go.dev/badge/github.com/mikestefanello/pagoda.svg)](https://pkg.go.dev/github.com/mikestefanello/pagoda)
+[![Go Reference](https://pkg.go.dev/badge/reak/base.svg)](https://pkg.go.dev/reak/base)
 [![GoT](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](https://go.dev)
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 
@@ -136,7 +136,7 @@ Go server-side rendered HTML combined with the projects below enable you to crea
 
 - [SQLite](https://sqlite.org/): A small, fast, self-contained, high-reliability, full-featured, SQL database engine and the most used database engine in the world.
 
-Originally, Postgres and Redis were chosen as defaults but since the aim of this project is rapid, simple development, it was changed to SQLite which now provides the primary data storage as well as persistent, background [task queues](#tasks). For [caching](#cache), a simple in-memory solution is provided. If you need to use something like Postgres or Redis, swapping those in can be done quickly and easily. For reference, [this branch](https://github.com/mikestefanello/pagoda/tree/postgres-redis) contains the code that included those (but is no longer maintained).
+Originally, Postgres and Redis were chosen as defaults but since the aim of this project is rapid, simple development, it was changed to SQLite which now provides the primary data storage as well as persistent, background [task queues](#tasks). For [caching](#cache), a simple in-memory solution is provided. If you need to use something like Postgres or Redis, swapping those in can be done quickly and easily. For reference, [this branch](https://reak/base/tree/postgres-redis) contains the code that included those (but is no longer maintained).
 
 ### Screenshots
 
@@ -183,7 +183,7 @@ cd pagoda
 
 Several optional tools are available to make development easier for you. This includes [Ent](#orm) code-generator, for generating ORM code, [Air](https://github.com/air-verse/air) CLI, to provide [live reloading](#live-reloading), and [Tailwind CSS](https://tailwindcss.com/docs/installation/tailwind-cli) CLI, to generate CSS. 
 
-If you wish to use Tailwind (with or without [Daisy UI](https://daisyui.com/)), modify the [Makefile](https://github.com/mikestefanello/pagoda/blob/main/Makefile), and adjust the `TAILWIND_PACKAGE` variable to reference the proper package for your operating system. By default, it's set to work with Linux x64. If you want to use Tailwind but don't want to use the standalone CLI, ie `npm`, modify the `tailwind-install` and `css` _make targets_ based on your preferences.
+If you wish to use Tailwind (with or without [Daisy UI](https://daisyui.com/)), modify the [Makefile](https://reak/base/blob/main/Makefile), and adjust the `TAILWIND_PACKAGE` variable to reference the proper package for your operating system. By default, it's set to work with Linux x64. If you want to use Tailwind but don't want to use the standalone CLI, ie `npm`, modify the `tailwind-install` and `css` _make targets_ based on your preferences.
 
 To easily install all tools, run `make install` from the root of the repo. There are also separate _make targets_ for each tool (run `make help` to list all targets).
 
@@ -302,7 +302,7 @@ As previously mentioned, [Ent](https://entgo.io/) is the supplied ORM. It can be
 
 An Ent client is included in the `Container` to provide easy access to the ORM throughout the application.
 
-Ent relies on code-generation for the entities you create to provide robust, type-safe data operations. Everything within the `ent` directory in this repository is generated code for the two entity types listed below except the [schema declaration](#https://github.com/mikestefanello/pagoda/tree/main/ent/schema) and [custom extension](https://github.com/mikestefanello/pagoda/tree/main/ent/admin) to generate code for the [admin panel](#admin-panel).
+Ent relies on code-generation for the entities you create to provide robust, type-safe data operations. Everything within the `ent` directory in this repository is generated code for the two entity types listed below except the [schema declaration](#https://reak/base/tree/main/ent/schema) and [custom extension](https://reak/base/tree/main/ent/admin) to generate code for the [admin panel](#admin-panel).
 
 ### Entity types
 
@@ -431,9 +431,9 @@ Users with admin [access](#access) will see additional links on the default side
 
 ### Code generation
 
-In order to automatically and dynamically provide admin functionality for entities, code generation is used by means of leveraging Ent's [extension API](https://entgo.io/docs/extensions) which makes generating code using the Ent graph schema very easy. A [custom extension](https://github.com/mikestefanello/pagoda/blob/master/ent/admin/extension.go) is provided to generate code that provides flat entity type structs and handler code that work directly with Echo. So, both of those are required in order for any of this to work. Whenever you modify one of your entity types or generate a new one, the admin code will also automatically generate.
+In order to automatically and dynamically provide admin functionality for entities, code generation is used by means of leveraging Ent's [extension API](https://entgo.io/docs/extensions) which makes generating code using the Ent graph schema very easy. A [custom extension](https://reak/base/blob/master/ent/admin/extension.go) is provided to generate code that provides flat entity type structs and handler code that work directly with Echo. So, both of those are required in order for any of this to work. Whenever you modify one of your entity types or generate a new one, the admin code will also automatically generate.
 
-Without going in to too much detail here, the generated code provides a [handler](https://github.com/mikestefanello/pagoda/blob/master/ent/admin/handler.go) that is then used by a provided [web handler](https://github.com/mikestefanello/pagoda/blob/master/pkg/handlers/admin.go) to power all the routes used in the admin UI. While the rest of the related code should be simple enough to follow, it's worth calling attention to the highly-dynamic [entity form](https://github.com/mikestefanello/pagoda/blob/master/pkg/ui/forms/admin_entity.go) that is constructed using the _Ent_ graph data structure.
+Without going in to too much detail here, the generated code provides a [handler](https://reak/base/blob/master/ent/admin/handler.go) that is then used by a provided [web handler](https://reak/base/blob/master/pkg/handlers/admin.go) to power all the routes used in the admin UI. While the rest of the related code should be simple enough to follow, it's worth calling attention to the highly-dynamic [entity form](https://reak/base/blob/master/pkg/ui/forms/admin_entity.go) that is constructed using the _Ent_ graph data structure.
 
 ### Access
 
@@ -441,7 +441,7 @@ Only admin users can access the admin panel. The details are outlined in the [ad
 
 ### Considerations
 
-Since the generated code is completely dynamic, all entity functionality related to creating and editing must be defined within your _Ent_ schema. Refer to the [User](https://github.com/mikestefanello/pagoda/blob/master/ent/schema/user.go) entity schema as an example.
+Since the generated code is completely dynamic, all entity functionality related to creating and editing must be defined within your _Ent_ schema. Refer to the [User](https://reak/base/blob/master/ent/schema/user.go) entity schema as an example.
 - Field validation must be defined within each entity field (ie, validating an email address in a _string_ field).
 - Pre-processing must be defined within entity hooks (ie, hashing the user's password).
 - _Sensitive_ fields will be omitted from the UI, and only modified if a value is provided during creation or editing.
@@ -590,7 +590,7 @@ assert.Equal(t, "About", h1.Text())
 
 ### Why Gomponents?
 
-Originally, standard Go templates were chosen for this project and a lot of code was written to build tools to make using them as easy and flexible as possible. That code remains archived in [this branch](https://github.com/mikestefanello/pagoda/tree/templates) but is no longer maintained. Despite providing tools such as a powerful _template renderer_, which did things like automatically compile nested templates to separate layouts from pages, automatically include component templates, support HTMX partial rendering, provide _funcmap_ function helpers, and more, the end result left a lot to be desired. Templates provide no type-safety, child templates are difficult to call when you have multiple arguments, templates are not flexible enough to easily provide reusable components and elements, the _funcmap_ and form submission code often had to return HTML or CSS classes, and more.
+Originally, standard Go templates were chosen for this project and a lot of code was written to build tools to make using them as easy and flexible as possible. That code remains archived in [this branch](https://reak/base/tree/templates) but is no longer maintained. Despite providing tools such as a powerful _template renderer_, which did things like automatically compile nested templates to separate layouts from pages, automatically include component templates, support HTMX partial rendering, provide _funcmap_ function helpers, and more, the end result left a lot to be desired. Templates provide no type-safety, child templates are difficult to call when you have multiple arguments, templates are not flexible enough to easily provide reusable components and elements, the _funcmap_ and form submission code often had to return HTML or CSS classes, and more.
 
 While I was extremely hesitant to adopt a rendering option outside the standard library, if an option exists that I personally feel is far superior, that is what I'm going to go with. [Templ](https://github.com/a-h/templ) was also a consideration as that project has made massive progress, seen an explosion in adoption, and aims to solve all the problems previously mentioned. I did not feel that it was a good fit for this project though as it requires you to know and understand their templating language, to install a CLI and an IDE plugin (which does not work with all IDEs; especially GoLand), and separately compile template code.
 
@@ -614,7 +614,7 @@ Another benefit of [HTMX](https://htmx.org/) is that it's completely backend-agn
 
 #### Header management
 
-Included is an [htmx package](https://github.com/mikestefanello/pagoda/blob/main/pkg/htmx/htmx.go) to read and write [HTTP headers](https://htmx.org/docs/#requests) that HTMX uses to communicate additional information and commands for both the request and response. This allows you, for example, to determine if HTMX is making the given request and what exactly it is doing, which could be useful both in your _route_ and your _ui_.
+Included is an [htmx package](https://reak/base/blob/main/pkg/htmx/htmx.go) to read and write [HTTP headers](https://htmx.org/docs/#requests) that HTMX uses to communicate additional information and commands for both the request and response. This allows you, for example, to determine if HTMX is making the given request and what exactly it is doing, which could be useful both in your _route_ and your _ui_.
 
 From within your _route_, you can fetch HTMX request details by calling `htmx.GetRequest(ctx)`, and you can send commands back to HTMX by calling `htmx.Response{...}.Apply(ctx)`, and populating any fields on the `htmx.Response` struct.
 
@@ -644,7 +644,7 @@ If [CSRF](#csrf) protection is enabled, the token value will automatically be pa
 
 Review the [installing tools](#installing-tools) section to ensure you have everything installed, and you understand how the `make` commands handle building your CSS styles and how live reloading automatically handles executing the Tailwind CLI. By default, the compiled CSS is written to `public/static/main.css` when `make css` is executed.
 
-Tailwind configuration is stored in [tailwind.css](https://github.com/mikestefanello/pagoda/blob/main/tailwind.css) and is configured to check for classes within `pkg/ui`. Remember, full class names must be present in the Go files in order for Tailwind to find them; you cannot dynamically build classes.
+Tailwind configuration is stored in [tailwind.css](https://reak/base/blob/main/tailwind.css) and is configured to check for classes within `pkg/ui`. Remember, full class names must be present in the Go files in order for Tailwind to find them; you cannot dynamically build classes.
 
 ### Request
 
@@ -697,7 +697,7 @@ func ProfileLink(r *ui.Request, userName string, userID int64) gomponents.Node {
 
 ### Components
 
-The [components package](https://github.com/mikestefanello/pagoda/tree/templates/pkg/ui/components) is meant to be your library of reusable _gomponent_ components. Having this makes building your [layouts](#layouts), [pages](#pages), [forms](#forms), [models](#models) and the rest of your user interface much easier. Some of the examples provided include components for [flash messages](#flash-messaging), navigation menus, tabs, metatags, and form elements used to automatically provide [inline validation](#inline-form-validation).
+The [components package](https://reak/base/tree/templates/pkg/ui/components) is meant to be your library of reusable _gomponent_ components. Having this makes building your [layouts](#layouts), [pages](#pages), [forms](#forms), [models](#models) and the rest of your user interface much easier. Some of the examples provided include components for [flash messages](#flash-messaging), navigation menus, tabs, metatags, and form elements used to automatically provide [inline validation](#inline-form-validation).
 
 Your components can also make using utility-based CSS libraries, such as [Tailwind CSS](https://tailwindcss.com/), much easier by avoiding excessive duplication of classes across elements. A number of [DaisyUI](https://daisyui.com/) components are provided.
 
@@ -736,11 +736,11 @@ Tabs([]Tab{
 
 ### Layouts
 
-_Layouts_ are full HTML templates that are used by [pages](#pages) to inject themselves in to, allowing you to easily have multiple pages that all use the same layout, and to easily switch layouts between different pages. [Included](https://github.com/mikestefanello/pagoda/tree/templates/pkg/ui/layouts) is a _primary_ and _auth_ layout as an example, which you can see in action by navigating between the links on the _General_ and _Account_ sidebar menus.
+_Layouts_ are full HTML templates that are used by [pages](#pages) to inject themselves in to, allowing you to easily have multiple pages that all use the same layout, and to easily switch layouts between different pages. [Included](https://reak/base/tree/templates/pkg/ui/layouts) is a _primary_ and _auth_ layout as an example, which you can see in action by navigating between the links on the _General_ and _Account_ sidebar menus.
 
 ### Pages
 
-_Pages_ are what [route handlers](#handlers) ultimately assemble and render. They may accept primitives, [models](#models), [forms](#forms), or nothing at all, and they embed themselves in a [layout](#layouts) of their choice. Each _page_ represents a different page of your web application and many [examples](https://github.com/mikestefanello/pagoda/tree/templates/pkg/ui/pages) are provided for reference. See below for a minimal example.
+_Pages_ are what [route handlers](#handlers) ultimately assemble and render. They may accept primitives, [models](#models), [forms](#forms), or nothing at all, and they embed themselves in a [layout](#layouts) of their choice. Each _page_ represents a different page of your web application and many [examples](https://reak/base/tree/templates/pkg/ui/pages) are provided for reference. See below for a minimal example.
 
 #### Rendering
 
@@ -767,9 +767,9 @@ func (e *ExampleHandler) Page(ctx echo.Context) error {
 
 ### Forms
 
-Building, rendering, validating and processing forms is made extremely easy with [Echo binding](https://echo.labstack.com/guide/binding/), [validator](https://github.com/go-playground/validator), [form.Submission](https://github.com/mikestefanello/pagoda/blob/templates/pkg/form/submission.go), and the provided _gomponent_ [components](#components).
+Building, rendering, validating and processing forms is made extremely easy with [Echo binding](https://echo.labstack.com/guide/binding/), [validator](https://github.com/go-playground/validator), [form.Submission](https://reak/base/blob/templates/pkg/form/submission.go), and the provided _gomponent_ [components](#components).
 
-Start by declaring the form within the [forms](https://github.com/mikestefanello/pagoda/tree/templates/pkg/ui/forms) package:
+Start by declaring the form within the [forms](https://reak/base/tree/templates/pkg/ui/forms) package:
 
 ```go
 type Guestbook struct {
@@ -888,7 +888,7 @@ The `Request` automatically extracts the CSRF token from the context, but you mu
 
 ### Models
 
-Models are objects built and provided by your _routes_ that can be rendered by your _ui_. Though not required, they reside in the [models package](https://github.com/mikestefanello/pagoda/tree/main/pkg/ui/models) and each has a `Render()` method, making them easy to render within your [pages](#pages). Please see example routes such as the homepage and search for an example.
+Models are objects built and provided by your _routes_ that can be rendered by your _ui_. Though not required, they reside in the [models package](https://reak/base/tree/main/pkg/ui/models) and each has a `Render()` method, making them easy to render within your [pages](#pages). Please see example routes such as the homepage and search for an example.
 
 ### Icons
 

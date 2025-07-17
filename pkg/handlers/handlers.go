@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/pkg/services"
+	"reak/base/pkg/services"
 )
 
 var handlers []Handler

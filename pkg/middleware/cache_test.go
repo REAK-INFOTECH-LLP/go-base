@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mikestefanello/pagoda/pkg/tests"
+	"reak/base/pkg/tests"
 
 	"github.com/stretchr/testify/assert"
 )

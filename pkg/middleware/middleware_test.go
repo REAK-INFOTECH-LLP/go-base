@@ -4,10 +4,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/pkg/services"
-	"github.com/mikestefanello/pagoda/pkg/tests"
+	"reak/base/config"
+	"reak/base/ent"
+	"reak/base/pkg/services"
+	"reak/base/pkg/tests"
 )
 
 var (

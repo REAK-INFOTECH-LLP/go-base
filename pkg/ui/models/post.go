@@ -3,11 +3,11 @@ package models
 import (
 	"fmt"
 
-	"github.com/mikestefanello/pagoda/pkg/pager"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/pager"
+	"reak/base/pkg/ui"
+	. "reak/base/pkg/ui/components"
 )
 
 type (

@@ -3,9 +3,9 @@ package components
 import (
 	"strings"
 
-	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/ui"
 )
 
 func JS() Node {

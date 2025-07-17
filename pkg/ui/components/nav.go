@@ -3,11 +3,11 @@ package components
 import (
 	"fmt"
 
-	"github.com/mikestefanello/pagoda/pkg/pager"
-	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/components"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/pager"
+	"reak/base/pkg/ui"
 )
 
 func MenuLink(r *ui.Request, icon Node, title, routeName string, routeParams ...any) Node {

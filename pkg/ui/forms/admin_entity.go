@@ -6,12 +6,12 @@ import (
 
 	"entgo.io/ent/entc/load"
 	"entgo.io/ent/schema/field"
-	"github.com/mikestefanello/pagoda/ent/admin"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/ent/admin"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
+	. "reak/base/pkg/ui/components"
 )
 
 func AdminEntity(r *ui.Request, schema *load.Schema, values url.Values) Node {

@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
+	"reak/base/pkg/ui/layouts"
 )
 
 func Error(ctx echo.Context, code int) error {

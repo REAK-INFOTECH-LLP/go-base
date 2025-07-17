@@ -1,9 +1,11 @@
 package handlers
 
 import (
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/services"
+	"reak/base/pkg/ui/pages"
+
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/pkg/services"
-	"github.com/mikestefanello/pagoda/pkg/ui/pages"
 )
 
 type Pages struct{}
@@ -17,10 +19,9 @@ func (h *Pages) Init(c *services.Container) error {
 }
 
 func (h *Pages) Routes(g *echo.Group) {
-	//g.GET("/", h.Home).Name = routenames.Home
-	//g.GET("/about", h.About).Name = routenames.About
+	g.GET("/", h.Home).Name = routenames.Home
 }
 
-func (h *Pages) About(ctx echo.Context) error {
-	return pages.About(ctx)
+func (h *Pages) Home(ctx echo.Context) error {
+	return pages.Home(ctx)
 }

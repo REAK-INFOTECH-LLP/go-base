@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mikestefanello/pagoda/pkg/log"
-	"github.com/mikestefanello/pagoda/pkg/services"
+	"reak/base/pkg/log"
+	"reak/base/pkg/services"
 )
 
 // main creates a new admin user with the email passed in via the flag.

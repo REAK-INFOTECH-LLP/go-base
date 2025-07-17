@@ -6,14 +6,14 @@ import (
 
 	"entgo.io/ent/entc/load"
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/ent/admin"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	"github.com/mikestefanello/pagoda/pkg/ui/forms"
-	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/ent/admin"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
+	. "reak/base/pkg/ui/components"
+	"reak/base/pkg/ui/forms"
+	"reak/base/pkg/ui/layouts"
 )
 
 func AdminEntityDelete(ctx echo.Context, entityTypeName string) error {

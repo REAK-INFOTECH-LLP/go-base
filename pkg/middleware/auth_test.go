@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/tests"
+	"reak/base/ent"
+	"reak/base/pkg/context"
+	"reak/base/pkg/tests"
 
 	"github.com/stretchr/testify/require"
 

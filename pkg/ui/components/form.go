@@ -1,10 +1,10 @@
 package components
 
 import (
-	"github.com/mikestefanello/pagoda/pkg/form"
-	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/form"
+	"reak/base/pkg/ui"
 )
 
 type (

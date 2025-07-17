@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	About                = "about"
+	Home                 = "home"
 	Login                = "login"
 	LoginSubmit          = "login.submit"
 	Register             = "register"

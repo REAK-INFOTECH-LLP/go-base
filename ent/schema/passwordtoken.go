@@ -7,9 +7,9 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/edge"
 	"entgo.io/ent/schema/field"
-	ge "github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/ent/hook"
 	"golang.org/x/crypto/bcrypt"
+	ge "reak/base/ent"
+	"reak/base/ent/hook"
 )
 
 // PasswordToken holds the schema definition for the PasswordToken entity.

@@ -2,10 +2,10 @@ package emails
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
 )
 
 func ConfirmEmailAddress(ctx echo.Context, username, token string) Node {

@@ -1,11 +1,11 @@
 package components
 
 import (
-	"github.com/mikestefanello/pagoda/pkg/msg"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	"github.com/mikestefanello/pagoda/pkg/ui/icons"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/msg"
+	"reak/base/pkg/ui"
+	"reak/base/pkg/ui/icons"
 )
 
 func FlashMessages(r *ui.Request) Node {

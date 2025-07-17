@@ -1,4 +1,4 @@
-module github.com/mikestefanello/pagoda
+module reak/base
 
 go 1.24.0
 

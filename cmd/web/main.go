@@ -9,10 +9,10 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/mikestefanello/pagoda/pkg/handlers"
-	"github.com/mikestefanello/pagoda/pkg/log"
-	"github.com/mikestefanello/pagoda/pkg/services"
-	"github.com/mikestefanello/pagoda/pkg/tasks"
+	"reak/base/pkg/handlers"
+	"reak/base/pkg/log"
+	"reak/base/pkg/services"
+	"reak/base/pkg/tasks"
 )
 
 func main() {

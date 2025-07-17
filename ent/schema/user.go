@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	ge "github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/ent/hook"
 	"golang.org/x/crypto/bcrypt"
+	ge "reak/base/ent"
+	"reak/base/ent/hook"
 
 	"entgo.io/ent"
 	"entgo.io/ent/schema/edge"

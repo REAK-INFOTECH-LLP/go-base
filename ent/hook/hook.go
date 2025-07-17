@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/mikestefanello/pagoda/ent"
+	"reak/base/ent"
 )
 
 // The PasswordTokenFunc type is an adapter to allow the use of ordinary

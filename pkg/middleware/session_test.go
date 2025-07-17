@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/gorilla/sessions"
-	"github.com/mikestefanello/pagoda/pkg/session"
-	"github.com/mikestefanello/pagoda/pkg/tests"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"reak/base/pkg/session"
+	"reak/base/pkg/tests"
 )
 
 func TestSession(t *testing.T) {

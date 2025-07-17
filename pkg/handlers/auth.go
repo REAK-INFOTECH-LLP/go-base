@@ -4,22 +4,23 @@ import (
 	"fmt"
 	"strings"
 
+	"reak/base/config"
+	"reak/base/ent"
+	"reak/base/ent/user"
+	"reak/base/pkg/context"
+	"reak/base/pkg/form"
+	"reak/base/pkg/log"
+	"reak/base/pkg/middleware"
+	"reak/base/pkg/msg"
+	"reak/base/pkg/redirect"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/services"
+	"reak/base/pkg/ui/emails"
+	"reak/base/pkg/ui/forms"
+	"reak/base/pkg/ui/pages"
+
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/ent/user"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/form"
-	"github.com/mikestefanello/pagoda/pkg/log"
-	"github.com/mikestefanello/pagoda/pkg/middleware"
-	"github.com/mikestefanello/pagoda/pkg/msg"
-	"github.com/mikestefanello/pagoda/pkg/redirect"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/services"
-	"github.com/mikestefanello/pagoda/pkg/ui/emails"
-	"github.com/mikestefanello/pagoda/pkg/ui/forms"
-	"github.com/mikestefanello/pagoda/pkg/ui/pages"
 )
 
 type Auth struct {
@@ -44,7 +45,6 @@ func (h *Auth) Init(c *services.Container) error {
 func (h *Auth) Routes(g *echo.Group) {
 	g.GET("/logout", h.Logout, middleware.RequireAuthentication).Name = routenames.Logout
 	g.GET("/email/verify/:token", h.VerifyEmail).Name = routenames.VerifyEmail
-	g.GET("/", h.LoginPage).Name = routenames.Login
 
 	noAuth := g.Group("/user", middleware.RequireNoAuthentication)
 	noAuth.GET("/login", h.LoginPage).Name = routenames.Login
@@ -178,7 +178,7 @@ func (h *Auth) LoginSubmit(ctx echo.Context) error {
 	msg.Success(ctx, fmt.Sprintf("Welcome back, %s. You are now logged in.", u.Name))
 
 	return redirect.New(ctx).
-		Route(routenames.Login).
+		Route(routenames.Home).
 		Go()
 }
 
@@ -189,7 +189,7 @@ func (h *Auth) Logout(ctx echo.Context) error {
 		msg.Error(ctx, "An error occurred. Please try again.")
 	}
 	return redirect.New(ctx).
-		Route(routenames.Login).
+		Route(routenames.Home).
 		Go()
 }
 
@@ -227,7 +227,7 @@ func (h *Auth) RegisterSubmit(ctx echo.Context) error {
 	case *ent.ConstraintError:
 		msg.Warning(ctx, "A user with this email address already exists. Please log in.")
 		return redirect.New(ctx).
-			Route(routenames.Login).
+			Route(routenames.Home).
 			Go()
 	default:
 		return fail(err, "unable to create user")
@@ -242,7 +242,7 @@ func (h *Auth) RegisterSubmit(ctx echo.Context) error {
 		)
 		msg.Info(ctx, "Your account has been created.")
 		return redirect.New(ctx).
-			Route(routenames.Login).
+			Route(routenames.Home).
 			Go()
 	}
 
@@ -252,7 +252,7 @@ func (h *Auth) RegisterSubmit(ctx echo.Context) error {
 	h.sendVerificationEmail(ctx, u)
 
 	return redirect.New(ctx).
-		Route(routenames.Login).
+		Route(routenames.Home).
 		Go()
 }
 
@@ -324,7 +324,7 @@ func (h *Auth) ResetPasswordSubmit(ctx echo.Context) error {
 
 	msg.Success(ctx, "Your password has been updated.")
 	return redirect.New(ctx).
-		Route(routenames.Login).
+		Route(routenames.Home).
 		Go()
 }
 
@@ -337,7 +337,7 @@ func (h *Auth) VerifyEmail(ctx echo.Context) error {
 	if err != nil {
 		msg.Warning(ctx, "The link is either invalid or has expired.")
 		return redirect.New(ctx).
-			Route(routenames.Login).
+			Route(routenames.Home).
 			Go()
 	}
 
@@ -376,6 +376,6 @@ func (h *Auth) VerifyEmail(ctx echo.Context) error {
 
 	msg.Success(ctx, "Your email has been successfully verified.")
 	return redirect.New(ctx).
-		Route(routenames.Login).
+		Route(routenames.Home).
 		Go()
 }

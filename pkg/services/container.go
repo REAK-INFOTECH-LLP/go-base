@@ -18,13 +18,13 @@ import (
 	"github.com/labstack/echo/v4"
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/mikestefanello/backlite"
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/pkg/log"
 	"github.com/spf13/afero"
+	"reak/base/config"
+	"reak/base/ent"
+	"reak/base/pkg/log"
 
 	// Required by ent.
-	_ "github.com/mikestefanello/pagoda/ent/runtime"
+	_ "reak/base/ent/runtime"
 )
 
 // Container contains all services used by the application and provides an easy way to handle dependency

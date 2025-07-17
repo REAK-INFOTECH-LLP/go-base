@@ -4,15 +4,15 @@ import (
 	"testing"
 
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/htmx"
-	"github.com/mikestefanello/pagoda/pkg/tests"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"maragu.dev/gomponents"
 	"maragu.dev/gomponents/html"
+	"reak/base/config"
+	"reak/base/ent"
+	"reak/base/pkg/context"
+	"reak/base/pkg/htmx"
+	"reak/base/pkg/tests"
 )
 
 func TestNewRequest(t *testing.T) {

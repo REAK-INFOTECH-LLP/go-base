@@ -3,11 +3,11 @@ package forms
 import (
 	"net/http"
 
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
+	. "reak/base/pkg/ui/components"
 )
 
 func AdminEntityDelete(r *ui.Request, entityTypeName string) Node {

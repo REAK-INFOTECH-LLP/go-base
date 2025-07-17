@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mikestefanello/pagoda/ent/passwordtoken"
-	"github.com/mikestefanello/pagoda/ent/user"
 	"golang.org/x/crypto/bcrypt"
+	"reak/base/ent/passwordtoken"
+	"reak/base/ent/user"
 
 	"github.com/stretchr/testify/require"
 

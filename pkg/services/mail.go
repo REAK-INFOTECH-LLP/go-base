@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"errors"
 
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/pkg/log"
 	"maragu.dev/gomponents"
+	"reak/base/config"
+	"reak/base/pkg/log"
 
 	"github.com/labstack/echo/v4"
 )

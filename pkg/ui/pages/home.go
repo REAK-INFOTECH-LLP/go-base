@@ -1,24 +1,28 @@
 package pages
 
 import (
+	"reak/base/pkg/ui"
+	"reak/base/pkg/ui/cache"
+	. "reak/base/pkg/ui/components"
+	"reak/base/pkg/ui/layouts"
+
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	"github.com/mikestefanello/pagoda/pkg/ui/cache"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
 
-func About(ctx echo.Context) error {
+func Home(ctx echo.Context) error {
 	r := ui.NewRequest(ctx)
-	r.Title = "About"
+	title := "Home (Not Logged In)"
+	if r.IsAuth {
+		title = "Home (Logged In)"
+	}
+	r.Title = title
 	r.Metatags.Description = "Learn a little about what's included in Pagoda."
 
 	// The tabs are static, so we can render and cache them.
 	tabs := cache.SetIfNotExists("pages.about.Tabs", func() Node {
 		return Group{
-			H2(Text("Frontend")),
 			P(Text("The following incredible projects make developing advanced, modern frontends possible and simple without having to write a single line of JS or CSS. You can go extremely far without leaving the comfort of Go with server-side rendered HTML.")),
 			Tabs(
 				[]Tab{

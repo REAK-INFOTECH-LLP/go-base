@@ -2,11 +2,11 @@ package ui
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/mikestefanello/pagoda/config"
-	"github.com/mikestefanello/pagoda/ent"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/htmx"
 	"maragu.dev/gomponents"
+	"reak/base/config"
+	"reak/base/ent"
+	"reak/base/pkg/context"
+	"reak/base/pkg/htmx"
 )
 
 type (

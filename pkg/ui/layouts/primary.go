@@ -1,12 +1,12 @@
 package layouts
 
 import (
-	"github.com/mikestefanello/pagoda/ent/admin"
-	"github.com/mikestefanello/pagoda/pkg/routenames"
-	"github.com/mikestefanello/pagoda/pkg/ui"
-	"github.com/mikestefanello/pagoda/pkg/ui/cache"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	"github.com/mikestefanello/pagoda/pkg/ui/icons"
+	"reak/base/ent/admin"
+	"reak/base/pkg/routenames"
+	"reak/base/pkg/ui"
+	. "reak/base/pkg/ui/components"
+	"reak/base/pkg/ui/icons"
+
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -42,64 +42,10 @@ func Primary(r *ui.Request, content Node) Node {
 					),
 					sidebarMenu(r),
 				),
-				searchModal(r),
 				HtmxListeners(r),
 			),
 		),
 	)
-}
-
-func search() Node {
-	return cache.SetIfNotExists("layout.search", func() Node {
-		return Div(
-			Class("ml-2"),
-			Attr("x-data", ""),
-			Label(
-				Class("input"),
-				icons.MagnifyingGlass(),
-				Input(
-					Type("search"),
-					Class("grow"),
-					Placeholder("Search"),
-					Attr("@click", "search_modal.showModal();"),
-				),
-			),
-		)
-	})
-}
-
-func searchModal(r *ui.Request) Node {
-	return cache.SetIfNotExists("layout.searchModal", func() Node {
-		return Dialog(
-			ID("search_modal"),
-			Class("modal"),
-			Div(
-				Class("modal-box"),
-				Form(
-					Method("dialog"),
-					Button(
-						Class("btn btn-sm btn-circle btn-ghost absolute right-2 top-2"),
-						Text("✕"),
-					),
-				),
-				H3(
-					Class("text-lg font-bold mb-2"),
-					Text("Search"),
-				),
-				Ul(
-					ID("results"),
-					Class("list"),
-				),
-			),
-			Form(
-				Method("dialog"),
-				Class("modal-backdrop"),
-				Button(
-					Text("close"),
-				),
-			),
-		)
-	})
 }
 
 func sidebarMenu(r *ui.Request) Node {
@@ -147,7 +93,6 @@ func sidebarMenu(r *ui.Request) Node {
 					Src(ui.StaticFile("logo.png")),
 				),
 			),
-			search(),
 			Ul(
 				HxBoost(),
 				header("Account"),

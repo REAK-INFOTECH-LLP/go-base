@@ -7,10 +7,10 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo/v4"
 	echomw "github.com/labstack/echo/v4/middleware"
-	"github.com/mikestefanello/pagoda/pkg/context"
-	"github.com/mikestefanello/pagoda/pkg/middleware"
-	"github.com/mikestefanello/pagoda/pkg/services"
-	files "github.com/mikestefanello/pagoda/public"
+	"reak/base/pkg/context"
+	"reak/base/pkg/middleware"
+	"reak/base/pkg/services"
+	files "reak/base/public"
 )
 
 // BuildRouter builds the router.
